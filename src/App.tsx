@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Typeahead } from 'react-bootstrap-typeahead';
-// import ReactDOM from 'react-dom';
-
 import options from './data';
+// import axios from "axios";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
@@ -11,6 +10,29 @@ import 'react-bootstrap-typeahead/css/Typeahead.bs5.css';
 
 const App = () => {
   const [selected, setSelected] = useState([]);
+  // const [stateData, setData] = useState([]);
+  
+
+  // useEffect(() => {
+  //   fetch('https://jsonplaceholder.typicode.com/todos')
+  //     .then(response => response.json())
+  //     .then(json => setData(json))
+  //     .catch(error => console.error(error));
+  // }, []);
+
+  // useEffect(() => {
+  //   // fetch('https://jsonplaceholder.typicode.com/todos')
+  //   //   .then(response => response.json())
+  //   //   .then(json => setData(json))
+  //   //   .catch(error => console.error(error));
+  //   getData("https://jsonplaceholder.typicode.com/todos");
+  // }, []);
+
+  // const getData = async (url) => {
+  //   try {const response = await axios.get(url);
+  //     setData(response);
+  //     console.log(response);} catch (error) {console.log(error);}};
+
 
   return (
    <div>
@@ -18,16 +40,33 @@ const App = () => {
       <div className="Title-Subtitle">Front End Codding Challenge</div>   
      </div>
     
-    <label>Select State</label>
+    <label>Select State of USA</label>
     
     <Typeahead className="search-box"
       id="serach"
       onChange={setSelected}
       options={options}
-      placeholder="Choose a state..."
+      placeholder="States of USA..."
       selected={selected}
     />
-    </div>
+ {/* <Typeahead className="search-box"
+      id="serach_api"
+      labelKey="title"      
+      options={stateData}
+      onChange={setData}
+      placeholder="Select user ..."
+      selected={selected}
+    /> */}
+ {/* <Typeahead className="search-box"
+      id="serach_api"
+      labelKey="title"   
+      onChange={setSelected}   
+      options={stateData}
+      placeholder="select user..."
+      selected={selected}
+    /> */}
+
+</div>
   );
 };
 
