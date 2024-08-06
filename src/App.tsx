@@ -11,7 +11,7 @@ import 'react-bootstrap-typeahead/css/Typeahead.bs5.css';
 const App = () => {
   const [selected, setSelected] = useState([]);
   const [stateData, setData] = useState([]);
-  
+  //const [singleSelections, setSingleSelections] = useState([]);
 
   // useEffect(() => {
   //   fetch('https://jsonplaceholder.typicode.com/todos')
@@ -21,7 +21,7 @@ const App = () => {
   // }, []);
 
   useEffect(() => {
-    getData('https://jsonplaceholder.typicode.com/todos');
+    getData('https://jsonplaceholder.typicode.com/posts');
   }, []);
 
   const getData = async (url) => {
@@ -42,7 +42,7 @@ const App = () => {
       id="serach"
       onChange={setSelected}
       options={options}
-      placeholder="States of USA..."
+      placeholder="Choose a state..."
       selected={selected}
     />
 <label>Select User with API </label>
@@ -51,8 +51,8 @@ const App = () => {
       labelKey="title"   
       onChange={setData}   
       options={stateData}
-      placeholder="select user..."
-      // selected={stateData}
+      placeholder="Choose a person..."
+      //selected={stateData}
     />
 
 </div>
